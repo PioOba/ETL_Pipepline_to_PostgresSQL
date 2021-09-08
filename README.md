@@ -1,2 +1,2 @@
 # etl-twitter-postgres
-  Ssds sds
+  # sds
