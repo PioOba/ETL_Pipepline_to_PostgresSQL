@@ -154,7 +154,7 @@ def extract_and_clear_context_annotations_field(row_context_annotations_and_id):
 
     # Create a list for rows that had been cleaned
     list_of_rows_after_cleaning = []
-    print(row_context_annotations_and_id['context_annotations'])
+    
     if row_context_annotations_and_id['context_annotations'] or isinstance(row_context_annotations_and_id,float):
         return None
     else:
