@@ -9,7 +9,7 @@ bearer_token = "AAAAAAAAAAAAAAAAAAAAACvwRgEAAAAAP7bqakxMuZ4lwpWuJ0VnjCfebo4" \
 # parameters that determine the results of the query
 query_params = {
     'query': '"The Sims"',
-    'max_results': 10,
+    'max_results': 100,
     'tweet.fields': 'text,author_id,public_metrics,context_annotations,possibly_sensitive,lang,created_at',
     'user.fields': 'name,username,verified,created_at',
     'expansions': 'author_id'

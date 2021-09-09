@@ -13,7 +13,7 @@ def create_database():
         # Create connection to the database so we can create our own database
         conn = psycopg2.connect("host=localhost dbname=postgres user=postgres password=123")
 
-        # To be able to create tables/databases inside transactions
+        # To be able to create tables/databases by transactions
         conn.set_session(autocommit=True)
 
         # Open cursor
@@ -42,8 +42,6 @@ def create_tables(cur, conn):
     :return:
     """
 
-    # Delete already existing tables
-    cur.execute("DROP TABLE IF EXISTS Authors,Tweets,Public_metrics,Context_annotations")
 
     # Check whether table 'authors' exists and create it if it doesn't
     cur.execute("select exists(select * from information_schema.tables where table_name='authors')")
