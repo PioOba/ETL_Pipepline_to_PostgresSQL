@@ -42,3 +42,22 @@ In this project we build ETL Pipeline using Python. Data concerns recent Tweets 
 				"created_at": "2021-03-25T19:16:41.000Z",
 				"id": "1375164196535603203"
 ```
+##**Database schema**
+**Fact Table**
+**Tweets** - data associated with the tweet.
+```
+text, tweet_id, author_id, possibly_sensitive, language, date_of_creation
+```
+**Dimension Tables**
+**Authors** - data associated with author's account of the tweet
+```
+username, created_at, verified, name, author_id
+```
+**Public_metrics** - data associated with 'popularity' of the tweet
+```
+tweet_id, retweets_count, replies_count, like_count, quote_count,	
+```
+**Context_annotations** - data associated with products, domains, entites etc. which name was used in the tweet other than 'The Sims'
+```
+tweet_id, domain_name, entity_name
+```
