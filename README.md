@@ -72,6 +72,7 @@ tweet_id, domain_name, entity_name
 
 ## **Tools**
 Python 3.8
+
 PostgreSQL 13
 
 
