@@ -3,7 +3,7 @@
 ## **Overview**
 In this project we build ETL Pipeline using Python. Data concerns recent Tweets from Twitter that mention 'The Sims' video game, as it can be useful to know how popular are those tweets and what other products are mentioned. We gather recent tweets ourselves using Twitter API.
 ## **Sample Record**
-'''
+```
 "data": [
 		{
 			"author_id": "1375164196535603203",
@@ -33,4 +33,4 @@ In this project we build ETL Pipeline using Python. Data concerns recent Tweets 
 			"created_at": "2021-09-08T15:37:36.000Z",
 			"possibly_sensitive": false
 		},
-'''
+```
