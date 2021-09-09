@@ -42,9 +42,10 @@ In this project we build ETL Pipeline using Python. Data concerns recent Tweets 
 				"created_at": "2021-03-25T19:16:41.000Z",
 				"id": "1375164196535603203"
 ```
-##**Database schema**
+
+## **Database schema**
 **Fact Table**
-**Tweets** - data associated with the tweet.
+**Tweets** - data associated with the tweet
 ```
 text, tweet_id, author_id, possibly_sensitive, language, date_of_creation
 ```
