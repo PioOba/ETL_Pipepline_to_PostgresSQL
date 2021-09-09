@@ -66,6 +66,7 @@ tweet_id, domain_name, entity_name
 ```export_and_transform_data.py ``` -> uses Twitter API and GET request to download tweet data and then transform it and divide it between tables
 
 ```create_tables```-> Creates *tweetsdb* database in postgreSQL and creates tables inside it
+
 ```load_data```->Loads data into postgreSQL tweetsdb
 
 
