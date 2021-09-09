@@ -44,12 +44,12 @@ In this project we build ETL Pipeline using Python. Data concerns recent Tweets 
 ```
 
 ## **Database schema**
-**Fact Table**
+####Fact Table
 **Tweets** - data associated with the tweet
 ```
 text, tweet_id, author_id, possibly_sensitive, language, date_of_creation
 ```
-**Dimension Tables**
+####Dimension Tables
 **Authors** - data associated with author's account of the tweet
 ```
 username, created_at, verified, name, author_id
