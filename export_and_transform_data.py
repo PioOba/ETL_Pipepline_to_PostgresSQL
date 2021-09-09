@@ -83,12 +83,12 @@ def transform_and_clear_data(tweets):
     df_tweets_data.__delitem__('context_annotations')
 
     # Extract domain name and entity name from every row of the context_annotations dataframe
-    # and merge all Series into dataframe
-
-    list_context_annotations_cleaned = df_context_annotations.apply(
+    # and clean it
+    series_context_annotations_cleaned = df_context_annotations.apply(
         extract_and_clear_context_annotations_field, axis=1).explode().dropna()
 
-    df_context_annotations_cleaned = pd.DataFrame(list_context_annotations_cleaned.to_list())
+    # Transform series of context_annotations into list and the convert it to dataframe
+    df_context_annotations_cleaned = pd.DataFrame(series_context_annotations_cleaned.to_list())
 
     # Extract the 'includes' part of the data into dataframe
     df_tweets_includes = pd.DataFrame(tweets['includes']['users'])
@@ -127,7 +127,6 @@ def transform_and_clear_data(tweets):
                                              'id'
                                              ]]
 
-
     return df_tweets_data, df_context_annotations_cleaned, df_tweets_includes, df_public_metrics
 
 
@@ -154,8 +153,8 @@ def extract_and_clear_context_annotations_field(row_context_annotations_and_id):
 
     # Create a list for rows that had been cleaned
     list_of_rows_after_cleaning = []
-    
-    if row_context_annotations_and_id['context_annotations'] or isinstance(row_context_annotations_and_id,float):
+
+    if row_context_annotations_and_id['context_annotations'] or isinstance(row_context_annotations_and_id, float):
         return None
     else:
         # Iterate over list of the dictionaries inside the context_annotations field
@@ -172,8 +171,8 @@ def extract_and_clear_context_annotations_field(row_context_annotations_and_id):
                 contains_The_Sims = True
             else:
                 row_after_cleaning = pd.Series([row_context_annotations_and_id['id'],
-                                            domains_and_entities['domain']['name'],
-                                            domains_and_entities['entity']['name']], index=['id', 'domain', 'name'])
+                                                domains_and_entities['domain']['name'],
+                                                domains_and_entities['entity']['name']], index=['id', 'domain', 'name'])
 
                 list_of_rows_after_cleaning.append(row_after_cleaning)
 
