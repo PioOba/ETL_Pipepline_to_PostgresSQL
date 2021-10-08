@@ -54,8 +54,6 @@ def connect_to_endpoint(params):
                         f" has been saved in error_log.json")
 
     print("Exporting data from the source completed")
-    x=response.json()
-    json.dump(x,open('tweets.json','w+'))
     return response.json()
 
 
