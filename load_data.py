@@ -1,5 +1,6 @@
 import psycopg2
 import pandas as pd
+import os
 from io import StringIO
 import sys
 
@@ -41,7 +42,6 @@ def psycopg2_exception(err):
 
 def copy_from_dataFile_StringIO(conn, cur, df_data, table_name):
     '''
-
     :param conn: reference to the database
     :param cur: cursor used to perform sql commands to the database
     :param df_data:
@@ -51,9 +51,11 @@ def copy_from_dataFile_StringIO(conn, cur, df_data, table_name):
     # Create buffer
     buffer = StringIO()
     # Set the position in the buffer at the beginning
-    buffer.seek(0)
+
     # Import data into the buffer
     df_data.to_csv(buffer, header=False, index=False, sep='\t')
+    buffer.seek(0)
+
     try:
         # Copy data into table
         cur.copy_from(buffer, table_name, sep='\t')
@@ -61,6 +63,7 @@ def copy_from_dataFile_StringIO(conn, cur, df_data, table_name):
     except (Exception, psycopg2.DatabaseError) as err:
         # pass exception to function
         psycopg2_exception(err)
+
 
 
 def main(df_tweets_data, df_context_annotations_cleaned, df_tweets_includes, df_public_metrics):

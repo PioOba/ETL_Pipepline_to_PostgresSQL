@@ -54,6 +54,8 @@ def connect_to_endpoint(params):
                         f" has been saved in error_log.json")
 
     print("Exporting data from the source completed")
+    x=response.json()
+    json.dump(x,open('tweets.json','w+'))
     return response.json()
 
 
@@ -81,6 +83,7 @@ def transform_and_clear_data(tweets):
 
     # Delete the 'context_annotations' field from the original dataframe
     df_tweets_data.__delitem__('context_annotations')
+
 
     # Extract domain name and entity name from every row of the context_annotations dataframe
     # and clean it
@@ -154,7 +157,7 @@ def extract_and_clear_context_annotations_field(row_context_annotations_and_id):
     # Create a list for rows that had been cleaned
     list_of_rows_after_cleaning = []
 
-    if row_context_annotations_and_id['context_annotations'] or isinstance(row_context_annotations_and_id, float):
+    if isinstance(row_context_annotations_and_id, float) or isinstance(row_context_annotations_and_id['context_annotations'], float):
         return None
     else:
         # Iterate over list of the dictionaries inside the context_annotations field
