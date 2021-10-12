@@ -3,8 +3,7 @@ import json
 import pandas as pd
 
 # bearer token is a "password" that is needed for requesting API
-bearer_token = "AAAAAAAAAAAAAAAAAAAAACvwRgEAAAAAP7bqakxMuZ4lwpWuJ0VnjCfebo4" \
-               "%3DlqMS726jO2c6wTkGvywLeXwQJEPJf3hjfGpWuYyIK6dJs0dR8t "
+bearer_token = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 
 # parameters that determine the results of the query
 query_params = {
